@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<title>{% block Title %}Reportes{% endblock %}</title>
+
+
+<form method="POST" >
+	{% csrf_token %}
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Seleccione la opcion:</label>
+				<input type="radio" name="" value="Por mes">Por mes
+
+				<input type="radio" name="" value="Por restaurantes">Por restaurantes
+
+			<button class="btn btn-primary">Buscar</button>
+			 <button class="btn btn-info">Generar reporte</button>
+			</div>
+		</div>
+
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label>Seleccione el mes:</label>
+				<select class= "form-control" required="required"></select>
+			</div>
+		</div>
+
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label>	Seleccione el restaurante:</label>
+				<select class= "form-control" type="text" name="nombre_restaurante">
+				<option>"{{nombre_restaurante}}"</option>
+				</select>	
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label>Seleccione el año:</label>
+				<select class= "form-control" type="text" name="" required="required"></select>
+			</div>
+		</div>
+	</div>
+
+	<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Nombre del restaurante</td>
+			<td>Fecha de evaluacion</td>
+			<td>Calificacion final</td>
+		</tr>
+	</thead>
+
+
+	<tbody>
+	{% if object_list %}
+		{% for evaluacion in object_list %}
+		<tr>
+			<td>{{ evaluacion.restaurante.id}}</td>
+			<td>{{ evaluacion.restaurante.nombre_restaurante }}</td>
+			<td>{{ evaluacion.fecha }}</td>
+			<td>{{ evaluacion.nota_final }}</td>
+		</tr>
+		{% endfor %}
+
+	{% else %}
+		<h1>No hay restaurantes disponibles</h1>
+	{% endif %}
+	
+	</tbody>
+</table>
+</form>
+
+
+{% endblock %}

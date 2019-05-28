@@ -1,0 +1,88 @@
+{%  extends 'base/base.html'%}
+{% load staticfiles %}
+
+<title>{% block Title %} Nueva evaluacion {% endblock %}</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+{% block content %}
+<form action="" method="POST">
+	{% csrf_token %}	
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label>Titulo</label>
+				<input class= "form-control" type="text" name="titulo">
+			</div>
+		</div>
+
+		<div class="col-md-2 col-md-offset-2">
+			<div class="form-group">
+				<label>Fecha</label>
+				<input class= "form-control" type="text" name="fecha">	
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label>Inspector</label>
+				<input class= "form-control" type="text" name="nombre_inspector">
+			</div>
+		</div>
+
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label>Restaurante</label>
+				<select class="form-control"></select>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-10 col-md-offset-2">
+			<div class="form-group">
+				<label>Descripcion</label>
+				<textarea class= "form-control" rows="10" cols="100" name="descripcion"></textarea>
+			</div>
+		</div>
+	</div>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Factor</td>
+			<td>Calificacion</td>
+		</tr>
+	</thead>
+
+
+	<tbody>
+	{% if object_list %}
+		{% for indicador in object_list %}
+		<tr>
+			<td>{{ indicador.nombre_indicador }}</td>
+			<td>
+			<input class= "form-control" type="number" name="nota_idicador">
+			</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay indicadores disponibles</h1>
+		{% endif %}
+	
+	</tbody>
+</table>
+
+<div class="row">
+		<div class="col-md-10 col-md-offset-2">
+			<div class="form-group">
+				<label>Comentarios:</label>
+				<textarea class= "form-control" rows="10" cols="85" name="descripcion"></textarea>
+			</div>
+		</div>
+	</div>
+<button class="btn btn-primary" type="submit">Guardar</button>
+{% endblock %}

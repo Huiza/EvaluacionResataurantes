@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<title>{% block Title %}Nueva restaurante {% endblock %}</title>
+
+
+<form method="POST" >
+	{% csrf_token %}
+		<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Nombre:</label>
+				<input class= "form-control" type="text" name="nombre_restaurante" required="required"
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Direccion:</label>
+				<input class= "form-control" type="text" name="direccion" required="required">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Telefono:</label>
+				<input class= "form-control" type="text" name="telefono" required="required">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Encargado:</label>
+				<input class= "form-control" type="text" name="nombre_ecargado" required="required">
+			</div>
+			<button class="btn btn-primary" type="submit">Guardar</button>
+		</div>
+	</div>
+</form>
+
+
+{% endblock %}
