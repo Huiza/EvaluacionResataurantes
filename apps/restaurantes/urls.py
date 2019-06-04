@@ -18,4 +18,5 @@ from apps.restaurantes.views import index
 urlpatterns = [
     url(r'^$', index),
     
+    
 ]

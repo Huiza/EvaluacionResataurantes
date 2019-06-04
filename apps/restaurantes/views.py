@@ -13,7 +13,6 @@ from django.http import HttpResponse
 def index(request):
     return render (request, 'Restaurante/index.html')
 
-
 class RestauranteList(ListView):
 	model = Restaurante
 	template_name = 'Restaurante/listaRestaurantes.html'
