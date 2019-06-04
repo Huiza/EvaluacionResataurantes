@@ -82,9 +82,9 @@ DATABASES = {
        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         #'ENGINE': 'django.db.backends.mysql',
         'NAME': 'restaurantes',
-        'USER':'restaurantes',
-        'PASSWORD':'hdp115MH11066',
-        'HOST':'127.0.0.1',
+        'USER':'postgres',
+        'PASSWORD':'root',
+        'HOST':'localhost',
         'PORT':5432,
     }
 }

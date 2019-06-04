@@ -12,3 +12,10 @@ urlpatterns = [
      url(r'^listar/$', RestauranteList.as_view(), name='listar_restaurantes'),
   
 ]
+from django.conf.urls import url,include
+from apps.restaurantes.views import index
+
+urlpatterns = [
+    url(r'^$', index),
+    
+]

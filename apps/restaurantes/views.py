@@ -4,8 +4,16 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render,redirect,get_object_or_404
 from apps.restaurantes.forms import *
 from apps.restaurantes.models import *
+from django.http import HttpResponse
+
+
 
 # Create your views here.
+
+def index(request):
+    return render (request, 'Restaurante/index.html')
+
+
 class RestauranteList(ListView):
 	model = Restaurante
 	template_name = 'Restaurante/listaRestaurantes.html'
