@@ -1,0 +1,77 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<form action="{% url 'evaluacion:crear_indicador' %}" method="POST">
+	{% csrf_token %}
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label for="id_evaluacion" name="evaluacion">Evaluacion:</label>
+				<select  class="form-control" id="id_evaluacion" name="evaluacion">
+				<option value="" selected="selected">------------</option>
+				<option value="4">Inspeccion 1</option>
+				<option value="5">Inspeccion 2</option>
+				<option value="6">Inspecccion 3</option>
+				<option value="9">Inspecccion 4</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+			<div class="col-md-10 col-md-offset-2">
+			<div class="form-group">
+				<label for="id_indicador" name="indicador">Indicador:</label>
+				<select  class="form-control" id="id_indicador" name="indicador">
+				<option value="" selected="selected">------------</option>
+				<option value="1">Limpieza de localidad</option>
+				<option value="2">Comodidad</option>
+				<option value="3">Ambiente</option>
+				<option value="4">Temperatura adecuada de local</option>
+				<option value="5">Facilidades para discapacitados</option>
+				<option value="6">Servicios sanitarios en buenas condiciones</option>
+				<option value="7">Acceso fácil al restaurante</option>
+				<option value="8">Suficiente estacionamiento</option>
+				<option value="9">Vigilacia</option>
+				<option value="10">Cámaras de seguridad</option>
+				<option value="11">Consistencia del producto</option>
+				<option value="12">Ingredientes frescos y confiables</option>
+				<option value="13">Cumplimiento de recetas estanderizadas</option>
+				<option value="14">Variedad de platillos en el menú</option>
+				<option value="15">Rapidez del servicio</option>
+				<option value="16">Publicidad</option>
+				<option value="17">Combos</option>
+				<option value="18">Descuentos</option>
+				<option value="19">Tarjetas de crédito</option>
+				<option value="20">Precios accesibles</option>
+				<option value="21">Eventos o celebraciones programados</option>
+				<option value="22">Saludo de bienvenida al cliente</option>
+				<option value="23">Rapidez del servicio</option>
+				<option value="24">Revisión de mesa constantemente</option>
+				<option value="25">Ofrecimiento de promociones,combos y descuentos</option>
+				<option value="26">Atención a las petición del cliente</option>
+				<option value="27">Empatía del cliente</option>
+				<option value="28">Suficiente personal</option>
+				<option value="29">Personal capacitado</option>
+				<option value="30">Capacidad de resolver problemas</option>
+				<option value="31">Manejo de quejas</option>
+				<option value="32">Cumplimiento de horarios establecidos</option>
+				</select>
+			
+			</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label>Nota:</label>
+				<input class= "form-control" type="number" name="nota_indicador" required="required" min="1" max="5">
+			</div>	
+			<button type="submit" class="btn btn-primary">Agregar</button>
+		</div>
+	</div>
+
+</form>
+{% endblock %}

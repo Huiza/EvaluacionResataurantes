@@ -1,0 +1,72 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<title>{% block Title %}Nuevo evaluacion {% endblock %}</title>
+
+<form method="POST">
+	{% csrf_token %}
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label>Titulo:</label>
+				<input class= "form-control" type="text" name="titulo" required="required">
+				</div>
+			</div>
+
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label>Fecha:</label>
+				<input class= "form-control" type="text" name="fecha" required="required">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label>Inspector:</label>
+				<input class= "form-control" type="text" name="nombre_inspector" required="required">
+			</div>
+		</div>
+	
+		<div class="col-md-4 col-md-offset-2">
+			<div class="form-group">
+				<label for="id_restaurante" name="restaurante">Restaurante:</label>
+				<select  class="form-control" id="id_restaurante" name="restaurante">
+				<option value="" selected="selected">------------</option>
+				<option value="1">Pizza Hut</option>
+				<option value="2">Pollo Campero</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+   <div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Descripción:</label>
+				<input class= "form-control" type="text" name="descripcion" required="required">
+			</div>
+		</div>
+	</div>
+
+	 <div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Comentarios:</label>
+				<input class= "form-control" type="text" name="comentarios" required="required">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label>Nota final:</label>
+				<input class= "form-control" type="number" name="nota_final" required="required"  min="1" max="5">
+			</div>	
+			<button class="btn btn-primary" type="submit">Guardar</button>
+		</div>
+	</div>
+</form>
+{% endblock %}
