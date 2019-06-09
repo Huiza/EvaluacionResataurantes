@@ -3,6 +3,7 @@
 
 {% block content %}
 <title>{% block Title %}Nuevo evaluacion {% endblock %}</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <form method="POST">
 	{% csrf_token %}
@@ -37,6 +38,7 @@
 				<option value="" selected="selected">------------</option>
 				<option value="1">Pizza Hut</option>
 				<option value="2">Pollo Campero</option>
+	
 				</select>
 			</div>
 		</div>
